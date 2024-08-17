@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+   
+   <bean id="s1" class="org.jsp.setterinjection.Student">
+   <!-- to represent setter injection -->
+   <property name="rollNo" value="101"></property>
+   <property name="name" value="XYZ"></property>
+   </bean>
+   <!-- configure college -->
+   <bean id="clg" class="org.jsp.setterinjection.College" scope="prototype">
+   <constructor-arg value="1"></constructor-arg>
+   <constructor-arg value="JNTU"></constructor-arg>
+   </bean>
+   <!-- CONFIGURE student -->
+   <bean id="s2" class="org.jsp.setterinjection.Student" scope="prototype">
+   <property name="name" value="qwerty"></property>
+   <property name="rollNo" value="102"></property>
+   <property name="college" ref="clg"></property>
+   </bean>
+   <!-- Autowiring Example -->
+   <bean id="college" class="org.jsp.setterinjection.College" scope="prototype">
+   <constructor-arg value="2"></constructor-arg>
+   <constructor-arg value="MJ COLLEGE"></constructor-arg>
+   </bean>
+   <bean id="Student1" class="org.jsp.setterinjection.Student" scope="prototype"
+   autowire="byName">
+   <property name="name" value="XYZ"></property>
+   <property name=" rollNO" value="4001"></property>
+   <!-- don't specify property tag for college variable to achieve autowiring-->
+   </bean>
+
+</beans>

@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\TESM7SpringWorkspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2847196411.index
+185529649.index
+176431667.index
+1121574946.index
+4201434564.index
+145002494.index

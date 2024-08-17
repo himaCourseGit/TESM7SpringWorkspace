@@ -1,0 +1,5 @@
+package com.jsp.springbootwebapp.dao;
+
+public class UserInfoDao1 {
+
+}

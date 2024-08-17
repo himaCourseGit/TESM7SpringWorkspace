@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+   
+   <bean id="emp1" class="com.jsp.springcore2.Employee" scope="prototype">
+   </bean>
+   <!--Constructor injection-->
+    <bean id="emp2" class="com.jsp.springcore2.Employee" scope="prototype">
+    <!-- to inject data in empId -->
+    <constructor-arg value="101"></constructor-arg>
+   </bean> 
+   <bean id="emp3" class="com.jsp.springcore2.Employee" scope="prototype">
+   <constructor-arg value="102" name="empId"></constructor-arg>
+   <constructor-arg value="XYZ" name="ename"></constructor-arg>
+   <constructor-arg value="50000" name="salary"></constructor-arg>
+   </bean>
+   <bean id="emp4" class="com.jsp.springcore2.Employee" scope="prototype">
+   <constructor-arg value="40000" index="2"></constructor-arg>
+   <constructor-arg value="101" index="0"></constructor-arg>
+   <constructor-arg value="PQR" index="1"></constructor-arg>
+   </bean>
+   <!--working with UserDefined non-primitive datatype-->
+   <!--configure address class-->
+   <bean id="addr" class="com.jsp.springcore2.Address" scope="prototype">
+  <constructor-arg value="1001"></constructor-arg>
+  <constructor-arg value="KPHB"></constructor-arg>
+  </bean>
+  <!-- Configure employee class -->
+  <bean id="employee1" class="com.jsp.springcore2.Employee" scope="prototype">
+   <constructor-arg name="ename" value="ABCD"></constructor-arg>
+   <constructor-arg name="salary" value="56000"></constructor-arg>
+   <constructor-arg name="empId" value="103"></constructor-arg>
+   <!--UserDefined non-primitive data type-->
+   <constructor-arg name="address" ref="addr"></constructor-arg>
+   </bean>
+   
+</beans>

@@ -1,0 +1,26 @@
+package com.jsp.airline.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jsp.airline.dto.PassengerDTO;
+import com.jsp.airline.entity.Passenger;
+import com.jsp.airline.repository.PassengerRepository;
+
+
+@Service
+public class AdminServiceImple implements AdminService {
+	@Autowired
+	private  PassengerRepository passengerrepository;
+
+	@Override
+	public int addPassenger(PassengerDTO dto) {
+		Passenger p1=PassengerRepository.save(Passenger.builder().PassengerId(dto.getPassengerId()).FirstName(dto.getFirstName()).LastName(dto.getLastName()).EmailId(dto.getEmailId()).MobileNumber(dto.getMobileNumber()).Gender(dto.getGender())
+				.BookingId(dto.getBookingId()).checkInId(dto.getCheckInId()).build());
+		System.out.println(p1);
+		return p1.getPassengerId();
+		
+		
+		
+	}
+}
